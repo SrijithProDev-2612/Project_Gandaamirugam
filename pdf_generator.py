@@ -13,6 +13,7 @@ def generate_pdf(student, config):
     marks = student.get("marks", {})
 
     school_name = config.get("school_name", "School Name")
+    exam_title = config.get("exam_name", "Examination")
     academic_year = config.get("academic_year", "Academic Year")
     class_name = config.get("class", "NA")
 
@@ -49,7 +50,7 @@ def generate_pdf(student, config):
     c.drawCentredString(width / 2, height - 185, academic_year)
 
     c.setFont("Helvetica", 12)
-    c.drawCentredString(width / 2, height - 205, exam_title)
+    # c.drawCentredString(width / 2, height - 205, exam_title)
 
     # ---------------- STUDENT INFO ----------------
     c.setFont("Helvetica", 11)
@@ -117,5 +118,6 @@ def generate_pdf(student, config):
     c.setFont("Helvetica", 11)
     c.drawString(left_margin, 55, "Class Teacher")
     c.drawRightString(right_margin, 55, "Principal")
+
 
     c.save()
